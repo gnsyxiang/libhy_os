@@ -47,6 +47,7 @@ _include_com    += \
 _sources_com    += \
                    hy_signal.c \
                    hy_thread.c \
+                   hy_thread_cond.c \
                    hy_thread_mutex.c \
                    hy_time.c
 
