@@ -46,7 +46,8 @@ _include_com    += \
 
 _sources_com    += \
                    hy_signal.c \
-                   hy_thread.c
+                   hy_thread.c \
+                   hy_time.c
 
 _cppflags_com   += \
                    $(_no_error_com) \
