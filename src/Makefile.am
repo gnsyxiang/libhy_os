@@ -45,7 +45,8 @@ _define_com     += -D_GNU_SOURCE
 _include_com    += -I$(top_srcdir)/include
 
 _sources_com    += \
-                   hy_hex.c
+                   hy_hex.c \
+                   hy_os.c
 
 _cppflags_com   += \
                    $(_no_error_com) \
