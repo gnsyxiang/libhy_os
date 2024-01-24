@@ -19,3 +19,25 @@
 # ===============================================================
 
 SUBDIRS = $(run_os)
+
+# ------------------
+# defining variables
+# ------------------
+_no_install_headers_com =
+_install_headers_com    =
+
+install_includedir      = $(includedir)/@project_name@
+
+# ---------------------
+# add necessary content
+# ---------------------
+_no_install_headers_com +=
+
+_install_headers_com    += \
+                           hy_hex.h
+
+# ------------------
+# make install files
+# ------------------
+noinst_HEADERS          = $(_no_install_headers_com)
+install_include_HEADERS = $(_install_headers_com)
