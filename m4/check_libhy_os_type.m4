@@ -55,8 +55,8 @@ AC_DEFUN([CHECK_LIBHY_OS_TYPE],
                         HY_OS_TYPE_LIBS=""
 
                         # clear cache
-                        unset ac_cv_search_HyTypeCheck
-                        AC_SEARCH_LIBS([HyTypeCheck],
+                        unset ac_cv_search_HyOsTypeCheck
+                        AC_SEARCH_LIBS([HyOsTypeCheck],
                                 [hy_os_type],
                                 [have_hy_os_type=yes HY_OS_TYPE_LIBS="$LIBS"],
                                 [have_hy_os_type=no],
