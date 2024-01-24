@@ -49,6 +49,7 @@ _sources_com    += \
                    hy_thread.c \
                    hy_thread_cond.c \
                    hy_thread_mutex.c \
+                   hy_thread_sem.c \
                    hy_time.c
 
 _cppflags_com   += \
