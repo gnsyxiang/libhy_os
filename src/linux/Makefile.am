@@ -45,9 +45,10 @@ _include_com    += \
                    -I$(top_srcdir)/include
 
 _sources_com    += \
-                   hy_file.c \
-                   hy_pipe.c \
                    hy_can.c \
+                   hy_file.c \
+                   hy_gpio.c \
+                   hy_pipe.c \
                    hy_signal.c \
                    hy_thread.c \
                    hy_thread_cond.c \
