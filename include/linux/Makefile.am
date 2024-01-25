@@ -33,6 +33,7 @@ _no_install_headers_com +=
 
 _install_headers_com    += \
                            hy_barrier.h \
+                           hy_can.h \
                            hy_file.h \
                            hy_signal.h \
                            hy_thread.h \

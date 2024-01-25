@@ -64,6 +64,14 @@ if COMPILE_LIBHY_LOG
 _ldadd_com      += $(HY_LOG_LIBS)
 endif
 
+bin_PROGRAMS                    += hy_can_demo
+hy_can_demo_SOURCES             = $(_sources_com) hy_can_demo.c
+hy_can_demo_CPPFLAGS            = $(_cppflags_com)
+hy_can_demo_CFLAGS              = $(_cflags_com)
+hy_can_demo_CXXFLAGS            = $(_cxxflags_com)
+hy_can_demo_LDFLAGS             = $(_ldflags_com)
+hy_can_demo_LDADD               = $(_ldadd_com)
+
 bin_PROGRAMS                    += hy_template_demo
 hy_template_demo_SOURCES        = $(_sources_com) hy_template_demo.c
 hy_template_demo_CPPFLAGS       = $(_cppflags_com)
