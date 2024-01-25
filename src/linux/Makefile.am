@@ -46,6 +46,7 @@ _include_com    += \
 
 _sources_com    += \
                    hy_file.c \
+                   hy_pipe.c \
                    hy_can.c \
                    hy_signal.c \
                    hy_thread.c \

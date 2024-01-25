@@ -35,6 +35,7 @@ _install_headers_com    += \
                            hy_barrier.h \
                            hy_can.h \
                            hy_file.h \
+                           hy_pipe.h \
                            hy_signal.h \
                            hy_thread.h \
                            hy_thread_cond.h \
