@@ -51,7 +51,8 @@ _sources_com    += \
                    hy_thread_cond.c \
                    hy_thread_mutex.c \
                    hy_thread_sem.c \
-                   hy_time.c
+                   hy_time.c \
+                   hy_utils_linux.c
 
 _cppflags_com   += \
                    $(_no_error_com) \

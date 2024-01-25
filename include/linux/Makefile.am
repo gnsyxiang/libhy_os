@@ -39,7 +39,8 @@ _install_headers_com    += \
                            hy_thread_cond.h \
                            hy_thread_mutex.h \
                            hy_thread_sem.h \
-                           hy_time.h
+                           hy_time.h \
+                           hy_utils_linux.h
 
 # ------------------
 # make install files
