@@ -48,6 +48,7 @@ _sources_com    += \
                    hy_can.c \
                    hy_file.c \
                    hy_gpio.c \
+                   hy_gpio_isr.c \
                    hy_pipe.c \
                    hy_signal.c \
                    hy_thread.c \
