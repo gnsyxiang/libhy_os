@@ -20,14 +20,13 @@
 #include <stdio.h>
 #include <time.h>
 
-#include <hy_os_type/hy_assert.h>
-#include <hy_os_type/hy_string.h>
-#include <hy_os_type/hy_mem.h>
-#include <hy_os_type/hy_utils.h>
-
-#include "hy_utils_linux.h"
-
 #include "hy_zone.h"
+
+#include "hy_assert.h"
+#include "hy_string.h"
+#include "hy_mem.h"
+#include "hy_utils.h"
+#include "hy_utils_linux.h"
 
 // 链接文件在res/zoneinfo目录下
 

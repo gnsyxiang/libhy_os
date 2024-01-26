@@ -25,9 +25,9 @@ extern "C" {
 #endif
 
 #include <pthread.h>
+#include <assert.h>
 
 #include <hy_os_type/hy_type.h>
-#include <hy_os_type/hy_assert.h>
 
 /**
  * @brief 配置参数
@@ -86,7 +86,7 @@ void HyThreadMutexDestroy(HyThreadMutex_s **handle_pp);
  */
 static inline hy_s32_t HyThreadMutexLock(HyThreadMutex_s *handle)
 {
-    HY_ASSERT(handle);
+    assert(handle);
 
     return pthread_mutex_lock(&handle->mutex) == 0 ? 0 : -1;
 }
@@ -107,7 +107,7 @@ do {                                                        \
  */
 static inline hy_s32_t HyThreadMutexUnLock(HyThreadMutex_s *handle)
 {
-    HY_ASSERT(handle);
+    assert(handle);
 
     return pthread_mutex_unlock(&handle->mutex) == 0 ? 0 : -1;
 }
@@ -128,7 +128,7 @@ do {                                                        \
  */
 static inline hy_s32_t HyThreadMutexTryLock(HyThreadMutex_s *handle)
 {
-    HY_ASSERT(handle);
+    assert(handle);
 
     return pthread_mutex_trylock(&handle->mutex) == 0 ? 0 : -1;
 }
@@ -149,7 +149,7 @@ do {                                                        \
  */
 static inline void *HyThreadMutexGetLock(HyThreadMutex_s *handle)
 {
-    HY_ASSERT(handle);
+    assert(handle);
 
     return &handle->mutex;
 }

@@ -20,11 +20,11 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#include <hy_os_type/hy_assert.h>
-#include <hy_os_type/hy_string.h>
-#include <hy_os_type/hy_mem.h>
-
 #include "hy_gpio.h"
+
+#include "hy_assert.h"
+#include "hy_string.h"
+#include "hy_mem.h"
 
 #define _GPIO_EXPORT_PATH       "/sys/class/gpio/export"
 #define _GPIO_UNEXPORT_PATH     "/sys/class/gpio/unexport"

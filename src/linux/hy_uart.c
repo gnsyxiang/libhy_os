@@ -22,12 +22,11 @@
 #include <termios.h>
 #include <unistd.h>
 
-#include <hy_os_type/hy_assert.h>
-#include <hy_os_type/hy_mem.h>
-
-#include <hy_os/hy_file.h>
-
 #include "hy_uart.h"
+
+#include "hy_assert.h"
+#include "hy_mem.h"
+#include "hy_file.h"
 
 #define _HY_UART_READ_VMIN_LEN      (16)
 #define _HY_UART_READ_VTIME_100MS   (10)

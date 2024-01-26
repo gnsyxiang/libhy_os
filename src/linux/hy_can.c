@@ -29,17 +29,15 @@
 #include <linux/can.h>
 #include <linux/can/raw.h>
 
-#include <hy_os_type/hy_assert.h>
-#include <hy_os_type/hy_mem.h>
-#include <hy_os_type/hy_string.h>
-#include <hy_os_type/hy_utils.h>
+#include "hy_can.h"
 
-#include <hy_os/hy_thread_mutex.h>
-
+#include "hy_assert.h"
+#include "hy_mem.h"
+#include "hy_string.h"
+#include "hy_utils.h"
 #include "hy_file.h"
 #include "hy_utils_linux.h"
-
-#include "hy_can.h"
+#include "hy_thread_mutex.h"
 
 struct HyCan_s {
     HyCanSaveConfig_s   save_c;

@@ -21,10 +21,10 @@
 #include <sys/time.h>
 #include <sys/resource.h>
 
-#include <hy_os_type/hy_mem.h>
-#include <hy_os_type/hy_assert.h>
-
 #include "hy_signal.h"
+
+#include "hy_mem.h"
+#include "hy_assert.h"
 
 #if (__linux__ && __GLIBC__ && !__UCLIBC__) || __APPLE__
 

@@ -34,8 +34,14 @@ install_includedir      = $(includedir)/@project_name@
 _no_install_headers_com +=
 
 _install_headers_com    += \
+                           hy_assert.h \
                            hy_hex.h \
-                           hy_os.h
+                           hy_list.h \
+                           hy_mem.h \
+                           hy_module.h \
+                           hy_os.h \
+                           hy_string.h \
+                           hy_utils.h
 
 # ------------------
 # make install files

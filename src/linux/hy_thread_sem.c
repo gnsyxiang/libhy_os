@@ -20,10 +20,10 @@
 #include <stdio.h>
 #include <semaphore.h>
 
-#include <hy_os_type/hy_assert.h>
-#include <hy_os_type/hy_mem.h>
-
 #include "hy_thread_sem.h"
+
+#include "hy_assert.h"
+#include "hy_mem.h"
 
 struct HyThreadSem_s {
     sem_t sem;

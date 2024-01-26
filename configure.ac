@@ -45,10 +45,18 @@ CHECK_LIBHY_OS_TYPE
 CHECK_LIBHY_LOG
 
 # Checks for header files.
+AC_CHECK_HEADERS([fcntl.h stdlib.h string.h sys/ioctl.h sys/socket.h sys/time.h termios.h unistd.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
+AC_C_INLINE
+AC_TYPE_MODE_T
+AC_TYPE_SIZE_T
+AC_TYPE_SSIZE_T
 
 # Checks for library functions.
+# AC_FUNC_MALLOC
+AC_FUNC_MKTIME
+AC_CHECK_FUNCS([gettimeofday localtime_r memset putenv select socket strerror tzset])
 
 AC_CONFIG_FILES([Makefile
                  $project_name.pc

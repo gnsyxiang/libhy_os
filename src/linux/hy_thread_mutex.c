@@ -18,11 +18,13 @@
  *     last modified: 24/01 2024 15:07
  */
 #include <stdio.h>
-#include <pthread.h>
 
-#include <hy_os_type/hy_mem.h>
+#include <hy_log/hy_log.h>
 
 #include "hy_thread_mutex.h"
+
+#include "hy_assert.h"
+#include "hy_mem.h"
 
 void HyThreadMutexDestroy(HyThreadMutex_s **handle_pp)
 {

@@ -24,15 +24,14 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#include <hy_os_type/hy_assert.h>
-#include <hy_os_type/hy_mem.h>
-#include <hy_os_type/hy_string.h>
+#include "hy_gpio_isr.h"
 
-#include <hy_os/hy_thread.h>
-
+#include "hy_assert.h"
+#include "hy_mem.h"
+#include "hy_string.h"
+#include "hy_thread.h"
 #include "hy_pipe.h"
 #include "hy_gpio.h"
-#include "hy_gpio_isr.h"
 
 #define _PIPE_EXIT 'Q'
 
