@@ -56,6 +56,7 @@ _sources_com    += \
                    hy_thread_mutex.c \
                    hy_thread_sem.c \
                    hy_time.c \
+                   hy_uart.c \
                    hy_utils_linux.c \
                    hy_zone.c
 
