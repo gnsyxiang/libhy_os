@@ -64,6 +64,8 @@ AC_CONFIG_FILES([Makefile
                  build-script/pc/Makefile
                  build-script/pc/ubuntu/Makefile
                  build-script/pc/windows/Makefile
+                 build-script/rock-chips/Makefile
+                 build-script/rock-chips/rk3568/Makefile
                  doc/Makefile
                  example/Makefile
                  example/linux/Makefile
