@@ -37,6 +37,7 @@ _install_headers_com    += \
                            hy_file.h \
                            hy_gpio.h \
                            hy_gpio_isr.h \
+                           hy_net_phy.h \
                            hy_pipe.h \
                            hy_signal.h \
                            hy_thread.h \
