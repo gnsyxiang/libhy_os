@@ -99,6 +99,5 @@ int main(int argc, char *argv[])
 
     HyLogDeInit();
 
-    sleep(3);
     return 0;
 }

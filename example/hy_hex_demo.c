@@ -46,8 +46,6 @@ int main(int argc, char *argv[])
 
     HY_HEX_BIT(&a, sizeof(a));
 
-    sleep(3);
-
     HyLogDeInit();
 
     return 0;
