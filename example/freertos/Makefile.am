@@ -5,7 +5,7 @@
 # @file    Makefile.am
 # @brief   
 # @author  gnsyxiang <gnsyxiang@163.com>
-# @date    05/03 2021 10:38
+# @date    01/02 2024 10:29
 # @version v0.0.1
 # 
 # @since    note
@@ -13,12 +13,10 @@
 # 
 #     change log:
 #     NO.     Author              Date            Modified
-#     00      zhenquan.qiu        05/03 2021      create the file
+#     00      zhenquan.qiu        01/02 2024      create the file
 # 
-#     last modified: 05/03 2021 10:38
+#     last modified: 01/02 2024 10:29
 # ===============================================================
-
-SUBDIRS = $(run_os)
 
 # ------------------
 # defining variables
@@ -59,29 +57,5 @@ _cxxflags_com   +=
 _ldflags_com    +=
 
 _ldadd_com      += \
-                   $(top_builddir)/src/lib@project_name@.la \
+                   $(top_builddir)/src/$(run_os)/lib@project_name@.la \
                    $(ldadd_com)
-
-if COMPILE_LIBHY_LOG
-_ldadd_com      += $(HY_LOG_LIBS)
-endif
-
-if COMPILE_LIBHY_OS_TYPE
-_ldadd_com      += $(HY_OS_TYPE_LIBS)
-endif
-
-bin_PROGRAMS            += hy_hex_demo
-hy_hex_demo_SOURCES     = $(_sources_com) hy_hex_demo.c
-hy_hex_demo_CPPFLAGS    = $(_cppflags_com)
-hy_hex_demo_CFLAGS      = $(_cflags_com)
-hy_hex_demo_CXXFLAGS    = $(_cxxflags_com)
-hy_hex_demo_LDFLAGS     = $(_ldflags_com)
-hy_hex_demo_LDADD       = $(_ldadd_com)
-
-bin_PROGRAMS            += hy_utils_demo
-hy_utils_demo_SOURCES   = $(_sources_com) hy_utils_demo.c
-hy_utils_demo_CPPFLAGS  = $(_cppflags_com)
-hy_utils_demo_CFLAGS    = $(_cflags_com)
-hy_utils_demo_CXXFLAGS  = $(_cxxflags_com)
-hy_utils_demo_LDFLAGS   = $(_ldflags_com)
-hy_utils_demo_LDADD     = $(_ldadd_com)
