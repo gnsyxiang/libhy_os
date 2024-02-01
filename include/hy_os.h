@@ -24,6 +24,9 @@
 extern "C" {
 #endif
 
+/**
+ * @brief 用于autotools编译脚本检测用
+ */
 void HyOsCheck(void);
 
 #ifdef __cplusplus
