@@ -19,14 +19,14 @@ LT_INIT
 PKG_PROG_PKG_CONFIG([0.24])
 PKG_INSTALLDIR
 
-SELECT_VENDER
-SELECT_CHIP
-
 # check m4 macro
 CHECK_PROJECT_INFO
 CHECK_VERSION_INFO
 CHECK_DOXYGEN
 CHECK_DEBUG_RELEASE
+
+SELECT_VENDER
+SELECT_CHIP
 
 # Checks for programs.
 AC_PROG_CXX
@@ -38,11 +38,11 @@ AC_PROG_LN_S
 AC_PROG_MAKE_SET
 # AC_PROG_RANLIB
 
-# Checks for libraries.
-
 CHECK_LIBCUNIT
 CHECK_LIBHY_OS_TYPE
 CHECK_LIBHY_LOG
+
+# Checks for libraries.
 
 # Checks for header files.
 AC_CHECK_HEADERS([fcntl.h stdlib.h string.h sys/ioctl.h sys/socket.h sys/time.h termios.h unistd.h])
@@ -54,7 +54,7 @@ AC_TYPE_SIZE_T
 AC_TYPE_SSIZE_T
 
 # Checks for library functions.
-# AC_FUNC_MALLOC
+AC_FUNC_MALLOC
 AC_FUNC_MKTIME
 AC_CHECK_FUNCS([gettimeofday localtime_r memset putenv select socket strerror tzset])
 
@@ -68,19 +68,30 @@ AC_CONFIG_FILES([Makefile
                  build-script/pc/windows/Makefile
                  build-script/rock-chips/Makefile
                  build-script/rock-chips/rk3568/Makefile
+                 build-script/stm32/Makefile
+                 build-script/stm32/stm32h7xx/Makefile
                  doc/Makefile
                  example/Makefile
                  example/freertos/Makefile
                  example/linux/Makefile
+                 example/mcu/Makefile
+                 example/mcu/stm32/Makefile
+                 example/mcu/stm32/stm32h7xx/Makefile
                  example/windows/Makefile
                  include/Makefile
                  include/freertos/Makefile
                  include/linux/Makefile
+                 include/mcu/Makefile
+                 include/mcu/stm32/Makefile
+                 include/mcu/stm32/stm32h7xx/Makefile
                  include/windows/Makefile
                  res/Makefile
                  src/Makefile
                  src/freertos/Makefile
                  src/linux/Makefile
+                 src/mcu/Makefile
+                 src/mcu/stm32/Makefile
+                 src/mcu/stm32/stm32h7xx/Makefile
                  src/windows/Makefile
                  test/Makefile
                  test/linux/Makefile
