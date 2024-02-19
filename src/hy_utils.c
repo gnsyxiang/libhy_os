@@ -26,8 +26,6 @@
 
 #include "hy_assert.h"
 
-void HyUtilsCheck(void) {}
-
 void HyUtilsIpStr2Int(const char *ip_str, hy_u32_t *ip_num)
 {
     HY_ASSERT_RET(!ip_str);

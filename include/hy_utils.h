@@ -94,11 +94,6 @@ do {                                                        \
 #error "unable to determine machine byte order"
 #endif
 
-/**
- * @brief 用于autotools检查libhy_utils使用
- */
-void HyUtilsCheck(void);
-
 #if 1
 /**
  * @brief 把num向上对齐到2^n幂
