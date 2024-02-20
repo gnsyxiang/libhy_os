@@ -52,6 +52,7 @@ _sources_com    += \
                    hy_net_phy.c \
                    hy_pipe.c \
                    hy_signal.c \
+                   hy_socket.c \
                    hy_thread.c \
                    hy_thread_cond.c \
                    hy_thread_mutex.c \

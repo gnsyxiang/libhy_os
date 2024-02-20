@@ -11,7 +11,7 @@ cross_gcc_path=
 
 configure_param=
 
-cppflag=
+cppflag=-Wno-error=unused-function
 cflag=
 cxxflag=
 ldflag=-rdynamic

@@ -40,6 +40,7 @@ _install_headers_com    += \
                            hy_net_phy.h \
                            hy_pipe.h \
                            hy_signal.h \
+                           hy_socket.h \
                            hy_thread.h \
                            hy_thread_cond.h \
                            hy_thread_mutex.h \
