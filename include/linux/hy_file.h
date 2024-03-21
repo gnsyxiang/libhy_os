@@ -56,10 +56,19 @@ hy_s32_t HyFileRemove(const char *file);
  * @brief 获取文件的长度
  *
  * @param file 文件
- 
+ *
  * @return 成功返回实际长度，失败返回-1
  */
 hy_s64_t HyFileGetLen(const char *file);
+
+/**
+ * @brief 获取文件的长度
+ *
+ * @param fd 文件句柄
+ *
+ * @return 成功返回实际长度，失败返回-1
+ */
+hy_u64_t HyFileGetLen_2(hy_s32_t fd);
 
 /**
  * @brief 获取文件的内容

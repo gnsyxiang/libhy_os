@@ -107,6 +107,18 @@ hy_s64_t HyFileGetLen(const char *file)
 #endif
 }
 
+hy_u64_t HyFileGetLen_2(hy_s32_t fd)
+{
+    struct stat file_stat;
+
+    if (fstat(fd, &file_stat) == -1) {
+        LOGE("get file len error \n");
+        return -1;
+    } else {
+        return file_stat.st_size;
+    }
+}
+
 // int main() {
 //     const char* filename = "example.txt";
 //     int file = open(filename, O_RDONLY);
