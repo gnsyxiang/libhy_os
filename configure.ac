@@ -54,7 +54,7 @@ AC_TYPE_SIZE_T
 AC_TYPE_SSIZE_T
 
 # Checks for library functions.
-AC_FUNC_MALLOC
+# AC_FUNC_MALLOC
 AC_FUNC_MKTIME
 AC_CHECK_FUNCS([gettimeofday localtime_r memset putenv select socket strerror tzset])
 
