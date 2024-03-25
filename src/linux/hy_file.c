@@ -443,31 +443,12 @@ hy_s32_t HyFileWriteN(hy_s32_t fd, const void *buf, hy_u32_t len)
     return len;
 }
 
-static hy_s32_t _set_fcntl(hy_s32_t fd, hy_s32_t arg)
-{
-    hy_s32_t flags;
-
-    if ((flags = fcntl(fd, F_GETFL, 0)) == -1) {
-        flags = 0;
-    }
-
-    return fcntl(fd, F_SETFL, flags | arg);
-}
-
 hy_s32_t HyFileBlockStateSet(hy_s32_t fd, HyFileBlockState_e state)
 {
-    hy_s32_t flags;
-
-    flags = fcntl(fd, F_GETFL, 0);
-    if (flags == -1) {
-        LOGE("fcntl failed \n");
-        return -1;
-    }
-
     if (HY_FILE_BLOCK_STATE_BLOCK == state) {
-        return fcntl(fd, F_SETFL, flags & ~O_NONBLOCK);
+        return fcntl(fd, F_SETFL, fcntl(fd, F_GETFL, 0) & ~O_NONBLOCK);
     } else {
-        return fcntl(fd, F_SETFL, flags | O_NONBLOCK);
+        return fcntl(fd, F_SETFL, fcntl(fd, F_GETFL, 0) | O_NONBLOCK);
     }
 }
 
@@ -493,7 +474,7 @@ HyFileBlockState_e HyFileBlockStateGet(hy_s32_t fd)
  */
 hy_s32_t file_close_on_exec(hy_s32_t fd)
 {
-    return _set_fcntl(fd, FD_CLOEXEC);
+    return fcntl(fd, F_SETFL, fcntl(fd, F_GETFL, 0) | FD_CLOEXEC);
 }
 
 hy_s32_t HyFileSaveBuf(const char *path, const char *buf, hy_s32_t len)

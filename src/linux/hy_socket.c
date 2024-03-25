@@ -29,6 +29,7 @@
 
 #include "hy_mem.h"
 #include "hy_assert.h"
+#include "hy_file.h"
 
 #include "hy_socket.h"
 
@@ -82,7 +83,7 @@ hy_s32_t HySocketConnectTimeout(hy_s32_t socket_fd, hy_u32_t ms,
     hy_s32_t ret, flag;
     struct sockaddr_in server_addr;
     struct timeval tv;
-    fd_set wset,rset;
+    fd_set wset;
 
     HY_ASSERT_RET_VAL(!ip, -1);
 
@@ -94,34 +95,43 @@ hy_s32_t HySocketConnectTimeout(hy_s32_t socket_fd, hy_u32_t ms,
     fcntl(socket_fd, F_SETFL, fcntl(socket_fd, F_GETFL, 0) | O_NONBLOCK);
 
     ret = connect(socket_fd, (struct sockaddr *)&server_addr, sizeof(server_addr));
-    if (ret != 0) {
-        if (errno != EINPROGRESS) {
-            LOGES("connect failed \n");
-        } else {
-            tv.tv_sec = 0;
-            tv.tv_usec = ms * 1000;
+    if (ret < 0) {
+        if (errno == EINPROGRESS || errno == EALREADY || errno == ECONNREFUSED) {
+            tv.tv_sec = ms / 1000;
+            tv.tv_usec = (ms % 1000) * 1000;
 
-            FD_ZERO(&rset);
             FD_ZERO(&wset);
             FD_SET(socket_fd, &wset);
-            FD_SET(socket_fd, &rset);
 
-            flag = select(socket_fd + 1, &rset, &wset, NULL, &tv);
+            flag = select(socket_fd + 1, NULL, &wset, NULL, &tv);
             if (flag < 0) {
+                ret = -1;
                 LOGES("select failed \n");
             } else if (flag == 0) {
                 ret = -2;
                 LOGES("select timeout \n");
-            } else if (flag > 0) {
-                if (FD_ISSET(socket_fd, &wset) || FD_ISSET(socket_fd, &rset)) {
-                    fcntl(socket_fd, F_SETFL, fcntl(socket_fd, F_GETFL, 0) & ~O_NONBLOCK);
-                    ret = 0;
-                } else {
-                    LOGES("select timeout \n");
+            } else {
+                // FIXME 当服务端没有开启时，linux和windows现象有点不一样：
+                // windows会触发延时等待，此时flag=0
+                // linux则是socket可以操作，直接进入这里
+                if (FD_ISSET(socket_fd, &wset)) {
+                    ret = -1;
                 }
+
+                // int val = -1;
+                // socklen_t len = sizeof(int);
+                // getsockopt(socket_fd, SOL_SOCKET, SO_ERROR, &val, &len);
+                // if (val != 0) {
+                //     LOGES("error in connect \n");
+                //     ret = -1;
+                // } else {
+                //     ret = 0;
+                // }
             }
         }
     }
+
+    fcntl(socket_fd, F_SETFL, fcntl(socket_fd, F_GETFL, 0) & ~O_NONBLOCK);
 
     return ret;
 }
@@ -329,6 +339,8 @@ hy_s32_t HySocketClientTCPWriteOnceTimeout(const char *ip, hy_u16_t port,
             LOGE("HySocketCreate failed \n");
             break;
         }
+
+        HyFileBlockStateSet(socket_fd, HY_FILE_BLOCK_STATE_NOBLOCK);
 
         if (-1 == HySocketConnectTimeout(socket_fd, ms, ip, port)) {
             LOGE("HySocketConnectTimeout failed \n");
