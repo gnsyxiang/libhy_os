@@ -204,7 +204,7 @@ static hy_s32_t _zone_set(const char *zoneinfo_path)
 
     HY_MEMSET(cmd, sizeof(cmd));
     snprintf(cmd, sizeof(cmd), "rm -rf /tmp/localtime");
-    ret = HyUtilsLinuxSystemCmd_m(cmd, 0);
+    ret = HY_UTILS_SYSTEM_m(cmd, 0);
     if (0 != ret) {
         return -1;
     }
@@ -212,7 +212,7 @@ static hy_s32_t _zone_set(const char *zoneinfo_path)
     HY_MEMSET(cmd, sizeof(cmd));
     snprintf(cmd, sizeof(cmd), "ln -s %s/%s /tmp/localtime",
             context->save_c.zone_file_paht, zoneinfo_path);
-    ret = HyUtilsLinuxSystemCmd_m(cmd, 0);
+    ret = HY_UTILS_SYSTEM_m(cmd, 0);
     if (0 != ret) {
         return -1;
     }

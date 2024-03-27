@@ -33,7 +33,7 @@ extern "C" {
  *
  * @return 无
  */
-#define HyUtilsLinuxSystemCmd_m(_cmd, _ret)                 \
+#define HY_UTILS_SYSTEM_m(_cmd, _ret)                       \
     ({                                                      \
         hy_s32_t ret = 0xffffffff;                          \
         do {                                                \
@@ -57,7 +57,7 @@ extern "C" {
  *
  * @return 生成1到range之间的任意一个数
  */
-hy_u32_t HyUtilsLinuxRandomNum(hy_u32_t range);
+hy_u32_t HyUtilsRandomNum(hy_u32_t range);
 
 #ifdef __cplusplus
 }

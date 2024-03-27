@@ -23,7 +23,7 @@
 
 #include "hy_utils_linux.h"
 
-hy_u32_t HyUtilsLinuxRandomNum(hy_u32_t range)
+hy_u32_t HyUtilsRandomNum(hy_u32_t range)
 {
     struct timeval tv;
 

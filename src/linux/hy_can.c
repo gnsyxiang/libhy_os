@@ -129,7 +129,7 @@ static void _can_deinit(const char *name)
 {
     char param[64] = {0};
     snprintf(param, sizeof(param), "ip link set %s down", name);
-    HyUtilsLinuxSystemCmd_m(param, 0);
+    HY_UTILS_SYSTEM_m(param, 0);
 }
 
 static hy_s32_t _can_init(const char *name, HyCanSpeed_e speed)
@@ -172,20 +172,20 @@ static hy_s32_t _can_init(const char *name, HyCanSpeed_e speed)
 
     HY_MEMSET(param, sizeof(param));
     snprintf(param, sizeof(param), "echo 4096 > /sys/class/net/can0/tx_queue_len");
-    HyUtilsLinuxSystemCmd_m(param, 0);
+    HY_UTILS_SYSTEM_m(param, 0);
 
     HY_MEMSET(param, sizeof(param));
     snprintf(param, sizeof(param), "ip link set %s down", name);
-    HyUtilsLinuxSystemCmd_m(param, 0);
+    HY_UTILS_SYSTEM_m(param, 0);
 
     HY_MEMSET(param, sizeof(param));
     snprintf(param, sizeof(param), "ip link set %s up type can bitrate %d dbitrate 2000000  fd on", name, speed_num);
     // snprintf(param, sizeof(param), "ip link set %s type can bitrate %d", name, speed_num);
-    HyUtilsLinuxSystemCmd_m(param, 0);
+    HY_UTILS_SYSTEM_m(param, 0);
 
     HY_MEMSET(param, sizeof(param));
     snprintf(param, sizeof(param), "ip link set %s up", name);
-    HyUtilsLinuxSystemCmd_m(param, 0);
+    HY_UTILS_SYSTEM_m(param, 0);
 
     return 0;
 }
